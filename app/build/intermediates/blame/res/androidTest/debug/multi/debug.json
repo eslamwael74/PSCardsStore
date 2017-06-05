@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "D:\\Computer Science\\Android\\FireAppBase\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values_values.arsc.flat",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 45,
+                    "endOffset": 96
+                },
+                "from": {
+                    "file": "C:\\Users\\Eslam Wael\\.gradle\\caches\\transforms-1\\files-1.1\\rules-0.5.aar\\af1a17dcf47c5b75ffd66ccc45e44b75\\res\\values\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 229,
+                        "endColumn": 45,
+                        "endOffset": 270
+                    }
+                }
+            }
+        ]
+    }
+]
