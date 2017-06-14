@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FireAppBase</string>
+    <string name="app_name">PS Cards Task1</string>
     <string name="btn_forgot_password">Forget Your Password?</string>
     <string name="forgot_password">Forget password?</string>
     <string name="forgot_password_msg">Just need registered Email to sent your password</string>

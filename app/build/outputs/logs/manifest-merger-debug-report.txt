@@ -75,12 +75,8 @@ MERGED from [com.google.android.gms:play-services-iid:10.2.0] C:\Users\Eslam Wae
 MERGED from [com.google.android.gms:play-services-iid:10.2.0] C:\Users\Eslam Wael\.gradle\caches\transforms-1\files-1.1\play-services-iid-10.2.0.aar\e17f0e5a9cc68160843a702f510aec03\AndroidManifest.xml:21:5-66
 	android:name
 		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:5:22-64
-uses-permission#android.permission.GET_ACCOUNTS
-ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:6:5-71
-	android:name
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:6:22-68
 application
-ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:13:5-43:19
+ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:12:5-43:19
 MERGED from [com.android.support:design:25.2.0] C:\Users\Eslam Wael\.gradle\caches\transforms-1\files-1.1\design-25.2.0.aar\36981c2b53ae985212c876dee35a89a2\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:design:25.2.0] C:\Users\Eslam Wael\.gradle\caches\transforms-1\files-1.1\design-25.2.0.aar\36981c2b53ae985212c876dee35a89a2\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:appcompat-v7:25.2.0] C:\Users\Eslam Wael\.gradle\caches\transforms-1\files-1.1\appcompat-v7-25.2.0.aar\b96df24ff5eb238f5d2065b840f417fb\AndroidManifest.xml:25:5-20
@@ -142,31 +138,35 @@ MERGED from [com.android.support:support-core-utils:25.2.0] C:\Users\Eslam Wael\
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Eslam Wael\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\8190eeb372c3a15a25116115499804c5\AndroidManifest.xml:25:5-20
 MERGED from [com.android.support:support-compat:25.2.0] C:\Users\Eslam Wael\.gradle\caches\transforms-1\files-1.1\support-compat-25.2.0.aar\8190eeb372c3a15a25116115499804c5\AndroidManifest.xml:25:5-20
 	android:supportsRtl
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:18:9-35
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:17:9-35
 	android:label
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:16:9-41
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:15:9-41
 	android:roundIcon
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:17:9-54
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:16:9-54
 	android:icon
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:15:9-43
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:14:9-43
 	android:allowBackup
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:14:9-35
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:19:9-40
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:18:9-40
 activity#com.example.eslamwael74.fireappbase.login
-ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:20:9-26:20
+ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:19:9-25:20
 	android:name
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:20:19-40
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:19:19-40
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:21:13-25:29
+ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:20:13-24:29
 action#android.intent.action.MAIN
-ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:22:17-69
+ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:21:17-69
 	android:name
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:22:25-66
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:21:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:24:17-77
+ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:23:17-77
 	android:name
-		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:24:27-74
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:23:27-74
+activity#com.example.eslamwael74.fireappbase.MainActivity
+ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:26:9-50
+	android:name
+		ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:26:19-47
 activity#com.example.eslamwael74.fireappbase.signup
 ADDED from D:\Computer Science\Android\FireAppBase\app\src\main\AndroidManifest.xml:27:9-44
 	android:name

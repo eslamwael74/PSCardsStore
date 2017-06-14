@@ -245,19 +245,5 @@ public class login extends AppCompatActivity {
 
     }*/
 
-    public void buAnomoul(View view){
-        // Write a message to the database
-       mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-           @Override
-           public void onComplete(@NonNull Task<AuthResult> task) {
-                if(!task.isSuccessful()){
-                    Log.w("ERROR LOGIN",task.getException());
-
-                }
-           }
-       });
-        mAuth.signOut();
-
-    }
 
 }

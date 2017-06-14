@@ -24,21 +24,33 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity  {
 
+    private static final String TAG = "";
     private EditText email,newAEmail,newPass;
     private Button btnChangeEmail , btnChangePass , btnSendReset
             , changeEmail,changePass,resetPass,removeUser,signOut;
-    private TextView tEmail;
+    private TextView tEmail,tName , tPnum;
     private ProgressBar progressBar;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener authStateListener;
     FirebaseUser mUser = FirebaseAuth.getInstance().getCurrentUser();
     login m;
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference myRef;
+    private String userID;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference();
+        userID = user.getUid();
+
 
         authStateListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -53,9 +65,25 @@ public class MainActivity extends AppCompatActivity  {
                 }
             }
         };
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                showData(dataSnapshot);
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
 
         tEmail = (TextView) findViewById(R.id.Temail);
-        tEmail.setText("Your Email : " + mUser.getEmail());
+        tEmail.setText("      Your Email : " + mUser.getEmail());
+        tName = (TextView) findViewById(R.id.Tname);
+        //tName.setText("Name : " + user.getEmail() );
+        tPnum = (TextView) findViewById(R.id.Tphone_number);
+        //tPnum.setText("Name : " + user.getEmail() );
 
         email = (EditText) findViewById(R.id.pass_reset_email);
         newAEmail = (EditText) findViewById(R.id.new_email);
@@ -81,7 +109,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
         //if (progressBar != null){
-            progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.GONE);
         //}
 
 
@@ -97,7 +125,7 @@ public class MainActivity extends AppCompatActivity  {
                 btnSendReset.setVisibility(View.GONE);
 
             }
-                      });
+        });
         btnChangeEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { updateEmail();}
@@ -118,7 +146,7 @@ public class MainActivity extends AppCompatActivity  {
 
             }
         });
-       btnChangePass.setOnClickListener(new View.OnClickListener() {
+        btnChangePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 updatePassword();
@@ -171,42 +199,42 @@ public class MainActivity extends AppCompatActivity  {
         String newEmail = newAEmail.getText().toString().trim();
 
 
-                progressBar.setVisibility(View.VISIBLE);
-                if(mUser !=null && !newEmail.equals("")){
+        progressBar.setVisibility(View.VISIBLE);
+        if(mUser !=null && !newEmail.equals("")){
 
-                    mUser.updateEmail(newEmail)
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
+            mUser.updateEmail(newEmail)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
 
-                                    if(task.isSuccessful()){
-                                        Toast.makeText(MainActivity.this ,
-                                                "Email Updated!! PLEASE SIGNIN NEW EMAIL EMAIL",Toast.LENGTH_SHORT).show();
-                                        signOUT();
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                    else {
-                                        Toast.makeText(MainActivity.this ,
-                                                "FAILED UPDATE EMAIL.please try again",Toast.LENGTH_SHORT).show();
-                                        progressBar.setVisibility(View.GONE);
-                                    }
-                                }
-                            });
+                            if(task.isSuccessful()){
+                                Toast.makeText(MainActivity.this ,
+                                        "Email Updated!! PLEASE SIGNIN NEW EMAIL EMAIL",Toast.LENGTH_SHORT).show();
+                                signOUT();
+                                progressBar.setVisibility(View.GONE);
+                            }
+                            else {
+                                Toast.makeText(MainActivity.this ,
+                                        "FAILED UPDATE EMAIL.please try again",Toast.LENGTH_SHORT).show();
+                                progressBar.setVisibility(View.GONE);
+                            }
+                        }
+                    });
 
-                }
-                else if (newEmail.equals("")){
-                    newAEmail.setError("Oops!! Enter Your Email");
-                    progressBar.setVisibility(View.GONE);
-                }
-            }
+        }
+        else if (newEmail.equals("")){
+            newAEmail.setError("Oops!! Enter Your Email");
+            progressBar.setVisibility(View.GONE);
+        }
+    }
 
     public void updatePassword(){
 
         final String newPassword = newPass.getText().toString().trim();
 
-        progressBar.setVisibility(View.GONE);
+        progressBar.setVisibility(View.VISIBLE);
         if(mUser != null && !newPassword.equals("")){
-            if (newPassword.length() < 6){
+            if (newPassword.length() < 6 && newPassword.equals("")){
                 newPass.setError("Password Short!! please enter minimum 6 Characters");
                 progressBar.setVisibility(View.GONE);
             }
@@ -292,6 +320,27 @@ public class MainActivity extends AppCompatActivity  {
 
                         }
                     });
+        }
+
+    }
+
+
+    private void showData(DataSnapshot dataSnapshot){
+        for(DataSnapshot ds : dataSnapshot.getChildren()){
+
+            customer customer = new customer();
+            customer.setName(ds.child(userID).getValue(customer.class).getName());
+            customer.setpNum(ds.child(userID).getValue(customer.class).getpNum());
+
+            //Log.d(TAG, "showData : name: " + customer.getName());
+            tName.setText("      Your Name : " + customer.getName());
+            tPnum.setText("      Your Phone Number : " + customer.getpNum());
+            //Log.d(TAG, "showData : pNum: " + customer.getpNum());
+
+
+            //tName.setText("Name :" + customer.getName());
+            //tPnum.setText("Name :" + customer.getpNum());
+
         }
 
     }
